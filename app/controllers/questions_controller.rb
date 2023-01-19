@@ -3,13 +3,13 @@ class QuestionsController < ApplicationController
   def ask
   end
 
-  def question
-
-
-    @input = if params[:question]
-      @input = @input.select { |question| member.end_with?(params[:member]) }
-      puts "Silly question, get dressed and go to work!."
-    end
+  def answer
+    @answer = if params[:question].include? '?'
+                'silly question'
+              elsif params[:question].include? 'work'
+                'great'
+              else
+                "i dont care"
+              end
   end
-
 end
